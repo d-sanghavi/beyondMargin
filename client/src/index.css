@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #1f3864;
+  --saffron: #b45309;
+  --success: #15803d;
+  --warning: #d97706;
+  --danger: #b91c1c;
+  --appbg: #f7f8fa;
+  --card: #ffffff;
+  --info: #edf2f9;
+  --warm: #fff4e5;
+  --rule: #e4e9f2;
+  --muted: #6b7280;
+  --ink: #1a1a1a;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #eef1f6;
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--navy);
+  }
+}
+
+@layer components {
+  /* Money / stat numerals */
+  .num {
+    font-family: 'Inter', sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+
+  /* Skeleton shimmer */
+  .skeleton {
+    background: linear-gradient(90deg, #eef1f6 25%, #e2e7ef 37%, #eef1f6 63%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s infinite linear;
+    border-radius: 8px;
+  }
+
+  /* Hide scrollbars on horizontal strips */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-y: none;
+    scrollbar-width: none;
+  }
+
+  /* Chip base */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-rule bg-white px-3.5 py-2 text-sm font-medium text-ink transition-colors;
+    min-height: 40px;
+  }
+  .chip-active {
+    @apply border-saffron bg-warm text-saffron;
+  }
+}
+
+/* Respect OS-level reduce motion as a baseline; the app also has its own toggle. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

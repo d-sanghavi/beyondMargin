@@ -1,0 +1,14 @@
+{
+  "name": "beyondmargin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "beyondMargin — SIH 2026 (SIH26091). Frontend prototype lives in ./client.",
+  "scripts": {
+    "dev": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "preview": "npm --prefix client run preview",
+    "lint": "npm --prefix client run lint",
+    "typecheck": "npm --prefix client run typecheck",
+    "install:client": "npm --prefix client install"
+  }
+}
